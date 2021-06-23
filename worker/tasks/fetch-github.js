@@ -1,12 +1,26 @@
 let fetch = require("node-fetch");
 
-const URL = "localhost:5000/api/jobs";
+const baseURL = "https://bmuday.com/job-board/api/jobs";
 
-module.exports = async function fetchGithub() {
-  fetch(URL)
-    .then((response) => response.json())
-    .then((jobs) => console.log(jobs.length))
-    .catch((err) => console.log(err));
-  };
+async function fetchGithub() {
+  let resultCount = 1;
+  let onPage = 0;
+  const allJobs = [];
 
-module.exports();
+  while (resultCount > 0) {
+    fetch(`${baseURL}?page=${onPage}`)
+      .then((response) => response.json())
+      .then((jobs) => {
+        allJobs.push(jobs);
+        console.log(jobs);
+        console.log(`${jobs.length} jobs found.`);
+        onPage++;
+      })
+      .catch((err) => console.log(err));
+  }
+  console.log(allJobs.length);
+}
+
+fetchGithub();
+
+module.exports = fetchGithub;
