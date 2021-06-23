@@ -10,13 +10,24 @@ body {
 }
 
 #title {
+  text-align: center;
   font-size: 2.5rem;
   font-weight: bolder;
   margin: 50px auto;
 }
 
 .jobs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .job {
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
 }

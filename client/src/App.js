@@ -5,7 +5,7 @@ import data from "./data.json";
 const App = () => {
   return (
     <>
-      <h1 id="title">Jobs</h1>
+      <h1 id="title">Junior Software Jobs</h1>
       <Jobs jobs={data} />
     </>
   );
