@@ -47,16 +47,7 @@ deleteJob = (req, res, next) => {
 getAllJobs = (req, res, next) => {
   Job.find()
     .then((jobs) => {
-      let array;
-      let page = 1;
-      for (let i = 0; i < jobs.length; i++) {
-        for (let j = 0; j < 5; j++) {
-          array[i][j] = jobs[i];
-        }
-        page++;
-      }
-      res.status(200).json(array);
-      // res.status(200).json(jobs);
+      res.status(200).json(jobs);
     })
     .catch((error) => {
       res.status(500).json({
